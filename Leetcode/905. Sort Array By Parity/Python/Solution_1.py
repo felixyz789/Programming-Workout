@@ -5,7 +5,7 @@ class Solution:
 
         while l < r :
             if nums[l] % 2 == 1 and nums[r] % 2 == 0:
-                nums[l],nums[r] = nums[r],nums[l]
+                nums[l], nums[r] = nums[r], nums[l]
                 r -= 1
                 l += 1
                 continue

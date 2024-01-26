@@ -7,8 +7,7 @@ class Solution:
             if n == 1:
                 tmp += 1
             else:
-                if tmp > solution:
-                    solution = tmp
+                solution = max(tmp,solution)
                 tmp = 0
         
         return tmp if tmp > solution else solution

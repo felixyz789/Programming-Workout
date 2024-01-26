@@ -2,17 +2,15 @@ class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         nums_map = defaultdict(int)
         maximum = nums[0]
-
+        
         for n in nums:
+            maximum = max(maximum,n)
             nums_map[n] += 1
-            maximum = max(n, maximum)
-
-        solution = maximum
-
+        
+        kth_element = maximum
         while k > 0:
-            if maximum in nums_map:
-                k -= nums_map[maximum]
-                solution = maximum
+            kth_element = maximum
+            k -= nums_map[maximum]
             maximum -= 1
         
-        return solution
+        return kth_element

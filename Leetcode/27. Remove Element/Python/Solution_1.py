@@ -1,20 +1,13 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        k = nums.count(val)
-        upper = len(nums) - 1
-        down = 0
+        r = 0
+
+        for i in range(len(nums)):
+            l = nums[i]
+            if l != val and nums[r] == val:
+                nums[r], nums[i] = nums[i], nums[r] 
+                r += 1
+            elif nums[r] != val:
+                r += 1
         
-        while upper > down:
-            if nums[upper] == val:
-                upper -= 1
-            if nums[down] != val:
-                down += 1
-            if nums[down] == val and nums[upper] != val:
-                nums[down],nums[upper] = nums[upper],nums[down]
-                upper -= 1
-                down += 1
-
-        return k
-
-# This code don't pass the second test case. The problem's rules are incorrect.
-#  "Note that the five elements can be returned in any order."
+        return r 
